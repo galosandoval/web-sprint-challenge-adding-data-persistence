@@ -65,10 +65,10 @@ router.post('/', (req, res) => {
 
 // add task
 router.post('/task', (req, res) => {
-  const newTask= res.body
+  const newTask= req.body
   db('task').insert(newTask, 'id')
   .then((task) => {
-    res.status(200).json(task);
+    res.status(201).json(task);
   })
   .catch((error) => {
     res.status(500).json({ error: error.message });
