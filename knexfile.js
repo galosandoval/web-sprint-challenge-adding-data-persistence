@@ -1,11 +1,10 @@
 // Update with your config settings.
 
 module.exports = {
-
   development: {
-    client: 'sqlite3',
+    client: "sqlite3",
     connection: {
-      filename: './data/projects.db3'
+      filename: "./data/projects.db3",
     },
     migrations: {
       directory: "./data/migrations",
@@ -18,39 +17,7 @@ module.exports = {
         // runs after a connection is made to the sqlite engine
         conn.run("PRAGMA foreign_keys = ON", done); // turn on FK enforcement
       },
-    useNullAsDefault: true, 
+    },
+    useNullAsDefault: true,
   },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
 };
